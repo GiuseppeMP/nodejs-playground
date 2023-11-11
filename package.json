@@ -4,7 +4,8 @@
     "description": "Nodejs Playground YT",
     "main": "index.js",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "tdd": "jest --watchAll"
     },
     "repository": {
         "type": "git",
@@ -15,12 +16,6 @@
     "bugs": {
         "url": "https://github.com/GiuseppeMP/nodejs-playground/issues"
     },
-    "jest": {
-        "transform": {
-            "^.+\\.(ts|tsx)$": "ts-jest"
-        }
-    },
-
     "homepage": "https://github.com/GiuseppeMP/nodejs-playground#readme",
     "devDependencies": {
         "@types/express": "^4.17.21",
