@@ -1,0 +1,33 @@
+{
+    "name": "nodejs-playground",
+    "version": "1.0.0",
+    "description": "Nodejs Playground YT",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GiuseppeMP/nodejs-playground.git"
+    },
+    "author": "Giuseppe Matheus",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GiuseppeMP/nodejs-playground/issues"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.(ts|tsx)$": "ts-jest"
+        }
+    },
+
+    "homepage": "https://github.com/GiuseppeMP/nodejs-playground#readme",
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/jest": "^29.5.8",
+        "@types/node": "^20.9.0",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.1.1",
+        "typescript": "^5.2.2"
+    }
+}
