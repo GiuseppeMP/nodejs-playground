@@ -6,7 +6,10 @@ export default class Usuario {
         if (!nome.trim()) {
             throw new Error("Nome inválido");
         }
-        this._nome = nome;
+        if (/\d/.test(nome)) {
+            throw new Error("Nome não pode conter números")
+        }
+        this._nome = nome.trim().replace(/\s+/g, ' ')
     }
 
     public get nome(): string {
