@@ -6,17 +6,19 @@ describe('Dado que estamos criando Usuarios', () => {
 
     describe.each(nomes_validos)(`quando usamos dados obrigatorios: nome=%s`, (nome_valido) => {
 
-        const usuario = new Usuario(nome_valido);
+        const usuario = new Usuario(nome_valido)
 
-        it(`então o usuario criado deve ter nome=${nome_valido}`, () => {
-            expect(usuario.nome).toBe(nome_valido);
+        test(`então o usuario criado deve ter nome=${nome_valido}`, () => {
+            expect(usuario.nome).toBe(nome_valido)
         })
+        
     })
 
     describe.each(nomes_invalidos)(`quando usamos dados invalidos: nome=[%s]`, (nome_invalido) => {
-        it('então devera ocorrer um erro', () => {
-            const criarUsuario = () => new Usuario(nome_invalido);
-            expect(criarUsuario).toThrow('Nome inválido');
+
+        test('então devera ocorrer um erro', () => {
+            const criarUsuario = () => new Usuario(nome_invalido)
+            expect(criarUsuario).toThrow('Nome inválido')
         })
     })
 
