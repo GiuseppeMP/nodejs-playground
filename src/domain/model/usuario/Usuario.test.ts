@@ -2,7 +2,7 @@ import Usuario from "./Usuario";
 
 describe('Dado que estamos criando Usuarios', () => {
     const nomes_validos = ['Giuseppe', 'Fulano', 'Ana', 'NomeBugY', ' Beppe', ' Beppe ', 'Beppe ', 'Giuseppe  Matheus']
-    const nomes_invalidos = ['', '     ' ]
+    const nomes_invalidos = ['', '     ']
     const nomes_invalidos_com_numeros = ['Beppe123', '123Beppe', '1234', '983124']
 
     describe.each(nomes_validos)(`quando usamos dados obrigatorios: nome=%s`, (nome_valido) => {
