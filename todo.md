@@ -1,12 +1,19 @@
 ## TO DO TDD
 
+### O que estamos aplicando, repertório atual de coding?
+
+1. Bom cidadão/Good citizen + ADTs -> 
+Não podemos criar obj inválidos e não permitir que a interação com eles os tornem inválidos.
+2. TDD -> Ciclos de testes e refactoring 
+3. Refactoring -> Melhorias de código focadas em Design.
+
 ### Regras de Negócio
 
 - [x] Criar Usuario.ts
 - [x] Adicionar attr nome
 - [ ] Adicionar attr e-mail
 - [x] O Throw new Error não parece estar certo.
-- - - [ ] E se falhar em mais de uma validação? qual deveria dar throw antes?
+- - [x] E se falhar em mais de uma validação? qual deveria dar throw antes? nenhuma!
 - [x] Nome precisa ser valido
 - - [x] Não pode ser null, NaN, undefined ou vazio ex: ( '', '    ')
 - - [x] Não pode conter números ex: ( 'Beppe123', '123', etc)
@@ -32,3 +39,4 @@
 * Pomodoros (tempo de cada sessão) 15min ~ 30min.
     ** Oportunidade de passar teclado pro copiloto.
     ** Fazer descanso mental do que você tá trabalhando.
+* TS mult constructors
