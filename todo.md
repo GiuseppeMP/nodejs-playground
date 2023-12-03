@@ -22,12 +22,14 @@ Não podemos criar obj inválidos e não permitir que a interação com eles os 
 - - - [x] Sim mas somente um exp: ('Giuseppe[  ]Matheus')
 - - [x] Não pode conter simbolos! ex: (beppe@mp)
 - - [x] Quantos caracteres mínimos? 3?
+- - [ ] Quantos caracteres máximos? 3?
 
 ### Melhorias Tech/Conf/Arch
 
-- [ ] Adicionar framework de mutation TypeScript
-- [ ] Verificar coverage tests
-- [ ] Adicionar algum linter
+- [x] Verificar coverage tests
+- [x] Adicionar framework de coverage mutation TypeScript
+- [x] Adicionar comando para fazer mutação em testes especificos
+- [ ] Adicionar algum linter (code standard)
 - [ ] Explorar as opções mais avançadas do Jest
 
 ### Estudos/Pesquisa/Praticar Coding

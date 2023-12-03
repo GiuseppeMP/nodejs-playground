@@ -35,4 +35,5 @@ export default class Usuario {
     public get nome(): string {
         return this._nome
     }
+    
 }
