@@ -29,7 +29,7 @@ Não podemos criar obj inválidos e não permitir que a interação com eles os 
 - [x] Verificar coverage tests
 - [x] Adicionar framework de coverage mutation TypeScript
 - [x] Adicionar comando para fazer mutação em testes especificos
-- [ ] Adicionar algum linter (code standard)
+- [x] Adicionar algum linter (code standard)
 - [ ] Explorar as opções mais avançadas do Jest
 
 ### Estudos/Pesquisa/Praticar Coding
