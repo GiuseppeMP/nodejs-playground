@@ -8,11 +8,25 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "rules": {
-    },
+    "rules": {},
     "overrides": [
         {
-            "files": ["*.ts", "*.tsx"]
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ]
+        },
+        {
+            "files": [
+                "*.test.ts",
+                "*.spec.ts"
+            ],
+            "plugins": [
+                "jest"
+            ],
+            "extends": [
+                "plugin:jest/recommended"
+            ]
         }
     ]
 }
