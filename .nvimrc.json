@@ -2,5 +2,10 @@
     "tsserver": {
         "format": false,
         "inlay": false
+    },
+    "eslint": {
+        "format": true,
+        "shiftwidth": 2,
+        "inlay": true
     }
 }
