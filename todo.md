@@ -42,3 +42,11 @@ Não podemos criar obj inválidos e não permitir que a interação com eles os 
     ** Oportunidade de passar teclado pro copiloto.
     ** Fazer descanso mental do que você tá trabalhando.
 * TS mult constructors
+
+
+## Implementando o componente Configs
+
+- [ ] O que vai acontecer se a variavel APP_CONFIG_POSTGRESQL não estiver definida?
+- [ ] O que vai acontecer se o JSON.parse falhar? (por exemplo, se o JSON estiver vazio, ou invalido)
+- [ ] O que vai acontecer se alguma das propriedades estiver vazia? (por ex: user ou pass)
+-
