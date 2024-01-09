@@ -1,11 +1,10 @@
-import { type PostgreSQLConfig, type GerenciadorConfig } from './GerenciadorConfig'
+import { type PostgreSQLConfig, type GerenciadorConfig, PostgreSQLConfigErrors } from './GerenciadorConfig'
 import GerenciadorConfigImpl from './GerenciadorConfigImpl'
 
+const gerenciador: GerenciadorConfig = new GerenciadorConfigImpl()
 describe('Testando GerenciadorConfig', () => {
   it('deve retornar o valor de APP_CONFIG_PG', () => {
     // Arrange
-    const gerenciador: GerenciadorConfig = new GerenciadorConfigImpl()
-
     const mockEnv = '{ "host": "localhost_app", "port": 5435, "database": "mock", "user": "mock", "password": "mock" }'
 
     process.env.APP_CONFIG_PG = mockEnv
@@ -19,11 +18,10 @@ describe('Testando GerenciadorConfig', () => {
   })
 
   describe('Quando o APP_CONFIG_PG estiver invalido', () => {
-    test('deve retornar erro quando for não definido', () => {
+    test.each(['', '  ', undefined])('deve retornar erro quando for: [%s]', (env) => {
       // Arrange
-      const gerenciador: GerenciadorConfig = new GerenciadorConfigImpl()
-
-      process.env.APP_CONFIG_PG = ''
+      if (env === undefined) delete process.env.APP_CONFIG_PG
+      else process.env.APP_CONFIG_PG = env
 
       // Act
       // Assert
@@ -33,8 +31,6 @@ describe('Testando GerenciadorConfig', () => {
 
     test('deve retornar erro quando for não um JSON válido', () => {
       // Arrange
-      const gerenciador: GerenciadorConfig = new GerenciadorConfigImpl()
-
       process.env.APP_CONFIG_PG = '{ fashdfhasdf }'
 
       // Act
@@ -42,11 +38,24 @@ describe('Testando GerenciadorConfig', () => {
       expect(gerenciador.getPostgreSQLConfig).toThrow('A variável de ambiente APP_CONFIG_PG não é um JSON válido.')
     })
 
-    test.todo('deve retornar erro quando não atender o type PostgreSQLConfig')
-    test.todo('deve retornar erro quando database for vazio.')
-    test.todo('deve retornar erro quando user for vazio.')
-    test.todo('deve retornar erro quando password for vazio.')
-    test.todo('deve retornar erro quando port for vazio.')
-    test.todo('deve retornar erro quando host for vazio.')
+    test('deve retornar erro quando não alguma informação estiver faltante', () => {
+      // Arrange
+      const mockEnvTipoInvalido = '{ "host2": "localhost_app", "port2": 5435, "database_2": "mock", "user2": "mock", "password2": "mock" }'
+
+      const errosEsperados = []
+      errosEsperados.push(PostgreSQLConfigErrors.MISSING_HOST)
+      errosEsperados.push(PostgreSQLConfigErrors.MISSING_PORT)
+      errosEsperados.push(PostgreSQLConfigErrors.MISSING_USER)
+      errosEsperados.push(PostgreSQLConfigErrors.MISSING_PASSWORD)
+      errosEsperados.push(PostgreSQLConfigErrors.MISSING_DATABASE)
+
+      process.env.APP_CONFIG_PG = mockEnvTipoInvalido
+
+      // Act
+      // Assert
+      for (const erro of errosEsperados) {
+        expect(gerenciador.getPostgreSQLConfig).toThrow(erro)
+      }
+    })
   })
 })
